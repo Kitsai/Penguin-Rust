@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+    "idj_engine",
+    "penguin",
+]
+
+workspace.resolver = "2"
