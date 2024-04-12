@@ -1,3 +1,6 @@
+use std::ops::{Add, Sub, Mul};
+
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct Vec2 {
     pub x: f32,
     pub y: f32,
@@ -45,22 +48,37 @@ impl Vec2 {
             y: self.y.abs(),
         }
     }
+}
 
-    pub fn dot(&self, other: &Self) -> f32 {
-        self.x * other.x + self.y * other.y
-    }
+impl Add for Vec2 {
+    type Output = Self;
 
-    pub fn add(&self, other: &Self) -> Self {
+    fn add(self, rhs: Self) -> Self::Output {
         Self {
-            x: self.x + other.x,
-            y: self.y + other.y,
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
         }
     }
+}
 
-    pub fn sub(&self, other: &Self) -> Self {
+impl Sub for Vec2 {
+    type Output = Self;
+
+    fn sub(self, rhs: Self) -> Self::Output {
         Self {
-            x: self.x - other.x,
-            y: self.y - other.y,
+            x: self.x - rhs.x,
+            y: self.y - rhs.y,
+        }
+    }
+}
+
+impl Mul<f32> for Vec2 {
+    type Output = Self;
+
+    fn mul(self, rhs: f32) -> Self::Output {
+        Self {
+            x: self.x * rhs,
+            y: self.y * rhs,
         }
     }
 }

@@ -54,15 +54,15 @@ fn test_abs() {
 #[test]
 fn test_dot() {
     let v1 = Vec2::new(1.0, 2.0);
-    let v2 = Vec2::new(3.0, 4.0);
-    assert_eq!(v1.dot(&v2), 11.0);
+    let v2 = 2.0f32;
+    assert_eq!(v1 * v2, Vec2::new(2.0, 4.0));
 }
 
 #[test]
 fn test_add() {
     let v1 = Vec2::new(1.0, 2.0);
     let v2 = Vec2::new(3.0, 4.0);
-    let a = v1.add(&v2);
+    let a = v1 + v2;
     assert_eq!(a.x, 4.0);
     assert_eq!(a.y, 6.0);
 }
@@ -71,7 +71,7 @@ fn test_add() {
 fn test_sub() {
     let v1 = Vec2::new(1.0, 2.0);
     let v2 = Vec2::new(3.0, 4.0);
-    let s = v1.sub(&v2);
+    let s = v1 - v2;
     assert_eq!(s.x, -2.0);
     assert_eq!(s.y, -2.0);
 }
