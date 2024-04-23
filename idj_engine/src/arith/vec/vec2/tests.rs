@@ -1,4 +1,4 @@
-use super::Vec2;
+use super::*;
 
 #[test]
 fn test_creation() {

@@ -1,4 +1,5 @@
 use std::ops::{Add, Sub, Mul};
+use super::Vec;
 
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct Vec2 {
@@ -6,26 +7,32 @@ pub struct Vec2 {
     pub y: f32,
 }
 
-impl Vec2 {
-   pub fn new(x: f32, y: f32) -> Self {
-        Self { x, y }
-    }
-
-    pub fn sqr_magnitude(&self) -> f32 {
+impl Vec for Vec2 {
+    fn sqr_magnitude(&self) -> f32 {
         self.x * self.x + self.y * self.y
     }
     
-    pub fn magnitude(&self) -> f32 {
-        self.sqr_magnitude().sqrt()
-    }
-
-    pub fn normalized(&self) -> Self {
+    fn normalized(&self) -> Self {
         let mag = self.magnitude();
         Self {
             x: self.x / mag,
             y: self.y / mag,
         }
     }
+
+    fn abs(&self) -> Self {
+        Self {
+            x: self.x.abs(),
+            y: self.y.abs(),
+        }
+    }
+}
+
+impl Vec2 {
+   pub fn new(x: f32, y: f32) -> Self {
+        Self { x, y }
+    }
+
 
     pub fn inclination(&self) -> f32 {
         self.y.atan2(self.x)
@@ -42,12 +49,6 @@ impl Vec2 {
         Self { x, y }
     }
 
-    pub fn abs(&self) -> Self {
-        Self {
-            x: self.x.abs(),
-            y: self.y.abs(),
-        }
-    }
 }
 
 impl Add for Vec2 {

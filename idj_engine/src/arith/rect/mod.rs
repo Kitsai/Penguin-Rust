@@ -1,8 +1,9 @@
 #[cfg(test)]
 mod tests;
 
-use crate::arith::vec3::Vec3;
+use crate::arith::vec::vec3::Vec3;
 
+#[derive(Copy, Clone, Debug, PartialEq)]
 struct Rect {
     x: f32,
     y: f32,
@@ -37,5 +38,11 @@ impl Rect {
 
     pub fn get_pos(&self) -> Vec3 {
         return Vec3 {x: self.x, y: self.y, z: self.z}
+    }
+
+    fn add_vec(&mut self, v: Vec3) {
+        self.x += v.x;
+        self.y += v.y;
+        self.z += v.z;
     }
 }

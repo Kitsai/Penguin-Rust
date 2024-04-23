@@ -1,5 +1,5 @@
 use super::*;
-use crate::arith::vec3::Vec3;
+use crate::arith::vec::vec3::Vec3;
 
 #[test]
 fn test_creation() {

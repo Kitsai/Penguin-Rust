@@ -1,6 +1,7 @@
 #[cfg(test)]
 mod tests;
 
+use super::Vec;
 use std::ops::{Add, Mul, Sub};
 
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -14,16 +15,15 @@ impl Vec3 {
     pub fn new(x: f32, y: f32, z: f32) -> Self {
         Self { x, y, z }
     }
+}
 
-    pub fn sqr_magnitude(&self) -> f32 {
+impl Vec for Vec3 {
+
+    fn sqr_magnitude(&self) -> f32 {
         self.x * self.x + self.y * self.y + self.z * self.z
     }
 
-    pub fn magnitude(&self) -> f32 {
-        self.sqr_magnitude().sqrt()
-    }
-
-    pub fn normalized(&self) -> Self {
+    fn normalized(&self) -> Self {
         let mag = self.magnitude();
         Self {
             x: self.x / mag,
@@ -32,7 +32,7 @@ impl Vec3 {
         }
     }
 
-    pub fn abs(&self) -> Self {
+    fn abs(&self) -> Self {
         Self {
             x: self.x.abs(),
             y: self.y.abs(),
