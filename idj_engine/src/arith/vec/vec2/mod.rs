@@ -49,6 +49,9 @@ impl Vec2 {
         Self { x, y }
     }
 
+    pub fn as_vec3(&self, z: f32) -> super::vec3::Vec3 {
+        super::vec3::Vec3::new(self.x, self.y, z)
+    }
 }
 
 impl Add for Vec2 {

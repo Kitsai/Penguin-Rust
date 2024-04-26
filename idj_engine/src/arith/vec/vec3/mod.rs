@@ -15,6 +15,10 @@ impl Vec3 {
     pub fn new(x: f32, y: f32, z: f32) -> Self {
         Self { x, y, z }
     }
+
+    pub fn as_vec2(&self) -> super::vec2::Vec2 {
+        super::vec2::Vec2::new(self.x, self.y)
+    }
 }
 
 impl Vec for Vec3 {
