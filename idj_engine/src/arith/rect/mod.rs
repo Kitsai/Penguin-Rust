@@ -4,7 +4,7 @@ mod tests;
 use crate::arith::vec::vec3::Vec3;
 
 #[derive(Copy, Clone, Debug, PartialEq)]
-struct Rect {
+pub struct Rect {
     x: f32,
     y: f32,
     z: f32,
